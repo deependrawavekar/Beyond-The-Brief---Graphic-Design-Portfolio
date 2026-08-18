@@ -1,627 +1,166 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Beyond the Brief — Deependra Wavekar</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --bg:#080808;
-  --surface:#0f0f0f;
-  --surface2:#161616;
-  --border:#1e1e1e;
-  --border2:#2a2a2a;
-  --text:#e8e8e8;
-  --muted:#555;
-  --muted2:#333;
-  --accent:#ff3c00;
-  --accent2:#ff6b35;
-  --white:#f0f0f0;
-  --mono:'Space Mono',monospace;
-  --sans:'Space Grotesk',sans-serif;
-}
-html{scroll-behavior:smooth;}
-body{
-  font-family:var(--sans);
-  background:var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
-  cursor:none;
-}
 
-/* CURSOR */
-#cur{width:6px;height:6px;background:var(--accent);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transition:transform 0.1s;}
-#cur-ring{width:32px;height:32px;border:1px solid rgba(255,60,0,0.35);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transition:all 0.12s ease;}
-body:hover #cur-ring{opacity:1;}
 
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:24px 48px;
-  border-bottom:1px solid transparent;
-  transition:all 0.4s;
-}
-nav.scrolled{background:rgba(8,8,8,0.92);border-color:var(--border);backdrop-filter:blur(12px);}
-.nav-logo{
-  font-family:var(--mono);font-size:13px;font-weight:700;
-  letter-spacing:2px;color:var(--white);text-decoration:none;
-  display:flex;align-items:center;gap:10px;
-}
-.nav-logo-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s ease infinite;}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);}}
-.nav-links{display:flex;gap:36px;list-style:none;}
-.nav-links a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;font-family:var(--mono);}
-.nav-links a:hover{color:var(--white);}
-.nav-cta{font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:9px 20px;border:1px solid var(--accent);color:var(--accent);text-decoration:none;font-family:var(--mono);transition:all 0.2s;}
-.nav-cta:hover{background:var(--accent);color:var(--bg);}
 
-/* HERO */
-.hero{
-  min-height:100vh;display:flex;flex-direction:column;
-  justify-content:center;padding:0 48px;
-  position:relative;overflow:hidden;
-}
-.hero-grid-overlay{
-  position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,60,0,0.03) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,60,0,0.03) 1px,transparent 1px);
-  background-size:60px 60px;
-  pointer-events:none;
-}
-.hero-glow{
-  position:absolute;top:-20%;right:-10%;
-  width:600px;height:600px;
-  background:radial-gradient(circle,rgba(255,60,0,0.06) 0%,transparent 70%);
-  pointer-events:none;
-}
-.hero-counter{
-  font-family:var(--mono);font-size:11px;color:var(--muted);
-  letter-spacing:3px;text-transform:uppercase;margin-bottom:32px;
-  display:flex;align-items:center;gap:14px;
-  opacity:0;animation:fadeUp 0.8s ease 0.2s forwards;
-}
-.hero-counter::before{content:'';width:40px;height:1px;background:var(--accent);}
-.hero-name{
-  font-size:clamp(56px,9vw,130px);
-  font-weight:700;line-height:0.92;
-  letter-spacing:-3px;
-  opacity:0;animation:fadeUp 0.8s ease 0.4s forwards;
-}
-.hero-name .line1{display:block;color:var(--white);}
-.hero-name .line2{display:block;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.2);}
-.hero-name .accent-word{color:var(--accent);}
-.hero-sub{
-  margin-top:40px;max-width:520px;
-  font-size:15px;line-height:1.8;color:var(--muted);
-  opacity:0;animation:fadeUp 0.8s ease 0.6s forwards;
-}
-.hero-bottom{
-  display:flex;justify-content:space-between;align-items:flex-end;
-  margin-top:64px;
-  opacity:0;animation:fadeUp 0.8s ease 0.8s forwards;
-}
-.hero-tags{display:flex;gap:10px;flex-wrap:wrap;}
-.tag{
-  font-family:var(--mono);font-size:9px;letter-spacing:2px;
-  text-transform:uppercase;padding:6px 14px;
-  border:1px solid var(--border2);color:var(--muted);
-}
-.hero-scroll{
-  display:flex;flex-direction:column;align-items:flex-end;gap:8px;
-  font-family:var(--mono);font-size:9px;letter-spacing:2px;
-  color:var(--muted);text-transform:uppercase;
-}
-.scroll-bar{width:1px;height:50px;background:linear-gradient(var(--accent),transparent);margin-left:auto;animation:scrollAnim 2s ease infinite;}
-@keyframes scrollAnim{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+BTB
+	•	ABOUT
+	•	WORK
+	•	SKILLS
+	•	CONTACT
+BEHANCE ↗
 
-/* MARQUEE */
-.marquee-wrap{
-  padding:20px 0;
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  overflow:hidden;background:var(--surface);
-}
-.marquee-track{
-  display:flex;gap:0;white-space:nowrap;
-  animation:marquee 20s linear infinite;
-}
-.marquee-track span{
-  font-family:var(--mono);font-size:11px;letter-spacing:3px;
-  text-transform:uppercase;color:var(--muted);
-  padding:0 32px;
-}
-.marquee-track span.dot{color:var(--accent);padding:0 4px;}
-@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);};}
 
-/* SECTIONS */
-section{padding:120px 48px;}
-.section-eyebrow{
-  font-family:var(--mono);font-size:10px;letter-spacing:4px;
-  text-transform:uppercase;color:var(--accent);
-  margin-bottom:48px;display:flex;align-items:center;gap:16px;
-}
-.section-eyebrow::after{content:'';flex:0 0 40px;height:1px;background:var(--accent);}
+BEYOND THE BRIEF
+Design that
+speaks first.
+Deependra Wavekar
+Senior Graphic Designer & Visualiser based in Mumbai. I don't just execute briefs — I push them further. Building brands that command attention before a word is read.
+STRATEGIC
+SYSTEMATIC
+IMPACT-DRIVEN
+VERSATILE
+VISIONARY
+SCROLL
 
-/* ABOUT */
-.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
-.about-left h2{
-  font-size:clamp(36px,4.5vw,58px);font-weight:700;
-  line-height:1.05;letter-spacing:-1.5px;color:var(--white);
-  margin-bottom:32px;
-}
-.about-left h2 em{font-style:italic;color:var(--muted);font-weight:300;}
-.about-right p{font-size:15px;line-height:1.9;color:var(--muted);margin-bottom:24px;}
-.about-right p strong{color:var(--white);font-weight:500;}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:40px;border:1px solid var(--border);}
-.stat{padding:24px 20px;background:var(--bg);}
-.stat-n{font-family:var(--mono);font-size:36px;font-weight:700;color:var(--accent);line-height:1;}
-.stat-l{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:6px;font-family:var(--mono);}
+BRANDING
+✦
+VISUAL IDENTITY
+✦
+CONCEPTS
+✦
+IDEATE
+✦
+SHAPE
+✦
+DELIVER
+✦
+BEYOND THE BRIEF
+✦
+BRANDING
+✦
+VISUAL IDENTITY
+✦
+CONCEPTS
+✦
+IDEATE
+✦
+SHAPE
+✦
+DELIVER
+✦
+BEYOND THE BRIEF
+✦
+ABOUT
+Designing visual identities that drive today's launch and anchor tomorrow's growth.
+5+
+YEARS
+40+
+BRANDS
+15+
+INDUSTRIES
+I'm Deependra Wavekar — a Senior Graphic Designer & Visualiser based in Mumbai. My work lives where sharp visual craft meets intentional strategy. I don't just design to catch the eye; I design to anchor the message.
+From building complete visual identities and precision print media to high-stakes campaigns and multi-channel digital systems, I treat every project as an opportunity to push past the obvious.
+Great design doesn't start on an artboard — it starts with an idea worth scaling. I bridge the gap between tangible print craftsmanship, digital execution, and big-picture creative strategy to build work that outlasts the launch.
+SELECTED WORK
+Work that went further.
+FULL PORTFOLIO ↗
 
-/* WORK */
-.work-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;}
-.work-header h2{font-size:clamp(32px,4vw,52px);font-weight:700;letter-spacing:-1.5px;color:var(--white);}
-.view-all{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border2);padding-bottom:2px;transition:color 0.2s,border-color 0.2s;}
-.view-all:hover{color:var(--accent);border-color:var(--accent);}
-.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border);}
-.project{
-  position:relative;overflow:hidden;background:var(--surface);
-  aspect-ratio:4/3;display:flex;flex-direction:column;
-  justify-content:flex-end;padding:28px;text-decoration:none;color:var(--text);
-  group:true;
-}
-.project.wide{grid-column:span 2;aspect-ratio:16/6;}
-.project-bg{
-  position:absolute;inset:0;
-  background:var(--surface2);
-  transition:transform 0.7s cubic-bezier(0.16,1,0.3,1);
-}
-.project:hover .project-bg{transform:scale(1.04);}
-.project-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(0deg,rgba(8,8,8,0.92) 0%,rgba(8,8,8,0.2) 60%,transparent 100%);
-  transition:opacity 0.4s;
-}
-.project-content{position:relative;z-index:2;}
-.project-type{
-  font-family:var(--mono);font-size:9px;letter-spacing:3px;
-  text-transform:uppercase;color:var(--accent);margin-bottom:8px;
-}
-.project-title{font-size:22px;font-weight:700;letter-spacing:-0.5px;color:var(--white);line-height:1.2;}
-.project-desc{font-size:12px;color:var(--muted);margin-top:6px;max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
-.project:hover .project-desc{max-height:60px;}
-.project-arrow{
-  position:absolute;top:24px;right:24px;z-index:2;
-  width:36px;height:36px;border:1px solid rgba(255,60,0,0.3);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--accent);font-size:14px;
-  opacity:0;transform:translate(-6px,6px);
-  transition:all 0.3s;
-}
-.project:hover .project-arrow{opacity:1;transform:translate(0,0);}
 
-/* SKILLS */
-.skills-section{background:var(--surface);}
-.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
-.skill-card{
-  padding:40px 32px;background:var(--bg);
-  border-top:2px solid transparent;
-  transition:border-color 0.3s,background 0.3s;
-}
-.skill-card:hover{border-color:var(--accent);background:#0c0c0c;}
-.skill-icon{font-size:24px;margin-bottom:20px;}
-.skill-title{font-size:17px;font-weight:700;color:var(--white);margin-bottom:10px;letter-spacing:-0.3px;}
-.skill-desc{font-size:13px;line-height:1.8;color:var(--muted);}
-.skill-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
-.skill-tag{font-family:var(--mono);font-size:8px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border2);color:var(--muted);}
+PORTFOLIO · 2025
+Graphic Design Portfolio 2025
+A curated collection of brand identities, campaign creatives and visual systems.
+↗
 
-/* TESTIMONIALS */
-.testimonials-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border);}
-.testimonial{padding:40px;background:var(--surface);position:relative;}
-.testimonial::before{
-  content:'"';font-size:80px;font-weight:700;color:var(--accent);
-  position:absolute;top:16px;left:32px;line-height:1;opacity:0.3;
-  font-family:var(--mono);
-}
-.testimonial-text{font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:24px;padding-top:24px;}
-.testimonial-author{display:flex;align-items:center;gap:14px;}
-.testimonial-avatar{width:40px;height:40px;border-radius:50%;background:var(--border2);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--white);flex-shrink:0;}
-.testimonial-name{font-size:13px;font-weight:600;color:var(--white);}
-.testimonial-role{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:2px;}
 
-/* CONTACT */
-.contact-section{background:var(--bg);border-top:1px solid var(--border);}
-.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.contact-left h2{font-size:clamp(40px,5.5vw,72px);font-weight:700;letter-spacing:-2px;color:var(--white);line-height:1.0;}
-.contact-left h2 em{font-style:italic;color:var(--accent);}
-.contact-left p{font-size:14px;line-height:1.8;color:var(--muted);margin-top:20px;max-width:380px;}
-.contact-links{display:flex;flex-direction:column;}
-.contact-link{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:22px 0;border-bottom:1px solid var(--border);
-  text-decoration:none;color:var(--text);
-  font-size:14px;letter-spacing:0.3px;
-  transition:padding-left 0.25s,color 0.25s;
-}
-.contact-link:hover{padding-left:10px;color:var(--white);}
-.contact-link:hover .link-arrow{color:var(--accent);}
-.link-label{font-size:10px;font-family:var(--mono);letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
-.link-arrow{color:var(--muted);transition:color 0.25s;font-size:16px;}
-.contact-cta{
-  display:inline-block;margin-top:40px;padding:16px 40px;
-  background:var(--accent);color:var(--bg);
-  text-decoration:none;font-weight:700;font-size:12px;
-  letter-spacing:2px;text-transform:uppercase;font-family:var(--mono);
-  transition:background 0.2s,transform 0.2s;
-}
-.contact-cta:hover{background:var(--accent2);transform:translateY(-2px);}
+BRAND IDENTITY
+Horizon Seekers
+Full brand identity system from concept to guidelines.
+↗
 
-/* FOOTER */
-footer{
-  padding:32px 48px;border-top:1px solid var(--border);
-  display:flex;justify-content:space-between;align-items:center;
-  background:var(--surface);
-}
-.footer-logo{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:2px;}
-.footer-copy{font-family:var(--mono);font-size:10px;color:var(--muted2);letter-spacing:1px;}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(48px);transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1),transform 0.9s cubic-bezier(0.16,1,0.3,1);}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-delay-1{transition-delay:0.1s;}
-.reveal-delay-2{transition-delay:0.2s;}
-.reveal-delay-3{transition-delay:0.3s;}
+BRAND IDENTITY
+Technovation Academy
+Education brand built for ambition and scale.
+↗
 
-/* KEYFRAMES */
-@keyframes fadeUp{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  nav{padding:20px 24px;}
-  .nav-links,.nav-cta{display:none;}
-  .hero{padding:0 24px;}
-  section{padding:80px 24px;}
-  .about-layout,.contact-layout{grid-template-columns:1fr;gap:40px;}
-  .projects{grid-template-columns:1fr;}
-  .project.wide{grid-column:span 1;aspect-ratio:4/3;}
-  .skills-grid{grid-template-columns:1fr;}
-  .testimonials-grid{grid-template-columns:1fr;}
-  .hero-bottom{flex-direction:column;align-items:flex-start;gap:24px;}
-  footer{flex-direction:column;gap:12px;text-align:center;padding:24px;}
-  .stats{grid-template-columns:repeat(3,1fr);}
-}
-</style>
-</head>
-<body>
+BRANDING · PACKAGING
+Everbloom Bakery
+Warm, premium brand identity with full packaging system.
+↗
 
-<div id="cur"></div>
-<div id="cur-ring"></div>
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#" class="nav-logo">
-    <span class="nav-logo-dot"></span>
-    BTB
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="https://www.behance.net/deepwavekar" target="_blank" class="nav-cta">Behance ↗</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-grid-overlay"></div>
-  <div class="hero-glow"></div>
-
-  <div class="hero-counter">Beyond the Brief</div>
-
-  <h1 class="hero-name">
-    <span class="line1">Design that</span>
-    <span class="line1"><span class="accent-word">speaks</span> first.</span>
-    <span class="line2">Deependra Wavekar</span>
-  </h1>
-
-  <p class="hero-sub">Senior Graphic Designer & Visualiser based in Mumbai. I don't just execute briefs — I push them further. Building brands that command attention before a word is read.</p>
-
-  <div class="hero-bottom">
-    <div class="hero-tags">
-      <span class="tag">Brand Identity</span>
-      <span class="tag">Campaign Creatives</span>
-      <span class="tag">Visual Direction</span>
-      <span class="tag">Mumbai, IN</span>
-    </div>
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="scroll-bar"></div>
-    </div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span>Brand Identity</span><span class="dot">✦</span>
-    <span>Visual Direction</span><span class="dot">✦</span>
-    <span>Campaign Creatives</span><span class="dot">✦</span>
-    <span>Impact Books</span><span class="dot">✦</span>
-    <span>AD Sets</span><span class="dot">✦</span>
-    <span>Brochures</span><span class="dot">✦</span>
-    <span>Emailers</span><span class="dot">✦</span>
-    <span>WhatsApp Creatives</span><span class="dot">✦</span>
-    <span>Beyond the Brief</span><span class="dot">✦</span>
-    <span>Brand Identity</span><span class="dot">✦</span>
-    <span>Visual Direction</span><span class="dot">✦</span>
-    <span>Campaign Creatives</span><span class="dot">✦</span>
-    <span>Impact Books</span><span class="dot">✦</span>
-    <span>AD Sets</span><span class="dot">✦</span>
-    <span>Brochures</span><span class="dot">✦</span>
-    <span>Emailers</span><span class="dot">✦</span>
-    <span>WhatsApp Creatives</span><span class="dot">✦</span>
-    <span>Beyond the Brief</span><span class="dot">✦</span>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-  <p class="section-eyebrow">About</p>
-  <div class="about-layout reveal">
-    <div class="about-left">
-      <h2>I design brands that <em>live beyond</em> the campaign.</h2>
-      <div class="stats">
-        <div class="stat"><div class="stat-n">7+</div><div class="stat-l">Years</div></div>
-        <div class="stat"><div class="stat-n">103</div><div class="stat-l">Appreciated</div></div>
-        <div class="stat"><div class="stat-n">1K+</div><div class="stat-l">Views</div></div>
-      </div>
-    </div>
-    <div class="about-right">
-      <p>I'm <strong>Deependra Wavekar</strong>, a Senior Graphic Designer & Visualiser at <strong>Times Group, Mumbai</strong>. My work sits at the intersection of visual craft and strategic thinking — I don't just make things look good, I make them mean something.</p>
-      <p>From P2 programme campaigns to brand identity systems, I work across <strong>brochures, ad sets, impact books, emailers, banners and digital creatives</strong> — always pushing the brief further than where it started.</p>
-      <p>Currently exploring the space between design execution and creative strategy — because the best design decisions happen <strong>before the artboard opens.</strong></p>
-    </div>
-  </div>
-</section>
-
-<!-- WORK -->
-<section id="work" style="padding-top:0;">
-  <div class="work-header reveal">
-    <div>
-      <p class="section-eyebrow" style="margin-bottom:16px;">Selected Work</p>
-      <h2>Work that<br>went further.</h2>
-    </div>
-    <a href="https://www.behance.net/deepwavekar" target="_blank" class="view-all">Full Portfolio ↗</a>
-  </div>
-
-  <div class="projects reveal">
-    <a class="project wide" href="https://www.behance.net/gallery/203576733/Graphic-Design-Portfolio-2025" target="_blank">
-      <div class="project-bg" style="background:linear-gradient(135deg,#111 0%,#1a0a00 100%);"></div>
-      <div class="project-overlay"></div>
-      <div class="project-content">
-        <p class="project-type">Portfolio · 2025</p>
-        <h3 class="project-title">Graphic Design Portfolio 2025</h3>
-        <p class="project-desc">A curated collection of brand identities, campaign creatives and visual systems.</p>
-      </div>
-      <div class="project-arrow">↗</div>
-    </a>
-
-    <a class="project" href="https://www.behance.net/gallery/196016529/Horizon-Seekers-Brand-Identity" target="_blank">
-      <div class="project-bg" style="background:linear-gradient(135deg,#0a0f1a 0%,#0a1525 100%);"></div>
-      <div class="project-overlay"></div>
-      <div class="project-content">
-        <p class="project-type">Brand Identity</p>
-        <h3 class="project-title">Horizon Seekers</h3>
-        <p class="project-desc">Full brand identity system from concept to guidelines.</p>
-      </div>
-      <div class="project-arrow">↗</div>
-    </a>
-
-    <a class="project" href="https://www.behance.net/gallery/195836023/Technovation-Academy-Brand-Idenity" target="_blank">
-      <div class="project-bg" style="background:linear-gradient(135deg,#0f0a1a 0%,#130a20 100%);"></div>
-      <div class="project-overlay"></div>
-      <div class="project-content">
-        <p class="project-type">Brand Identity</p>
-        <h3 class="project-title">Technovation Academy</h3>
-        <p class="project-desc">Education brand built for ambition and scale.</p>
-      </div>
-      <div class="project-arrow">↗</div>
-    </a>
-
-    <a class="project" href="https://www.behance.net/gallery/195270077/Everbloom-Bakery" target="_blank">
-      <div class="project-bg" style="background:linear-gradient(135deg,#0f0a08 0%,#1a1008 100%);"></div>
-      <div class="project-overlay"></div>
-      <div class="project-content">
-        <p class="project-type">Branding · Packaging</p>
-        <h3 class="project-title">Everbloom Bakery</h3>
-        <p class="project-desc">Warm, premium brand identity with full packaging system.</p>
-      </div>
-      <div class="project-arrow">↗</div>
-    </a>
-
-    <a class="project" href="https://www.behance.net/gallery/154624369/Product-Flyers" target="_blank">
-      <div class="project-bg" style="background:linear-gradient(135deg,#0a0f0a 0%,#0a1a0a 100%);"></div>
-      <div class="project-overlay"></div>
-      <div class="project-content">
-        <p class="project-type">Print Design</p>
-        <h3 class="project-title">Product Flyers</h3>
-        <p class="project-desc">High-impact print creatives for product campaigns.</p>
-      </div>
-      <div class="project-arrow">↗</div>
-    </a>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="skills-section">
-  <p class="section-eyebrow">Expertise</p>
-  <div class="skills-grid reveal">
-    <div class="skill-card">
-      <div class="skill-icon">⬡</div>
-      <h3 class="skill-title">Brand Identity</h3>
-      <p class="skill-desc">Building brand systems from zero — logos, visual language, guidelines and the soul of a brand translated into design.</p>
-      <div class="skill-tags"><span class="skill-tag">Logo Design</span><span class="skill-tag">Brand Guidelines</span><span class="skill-tag">Visual Systems</span></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">◈</div>
-      <h3 class="skill-title">Campaign Creatives</h3>
-      <p class="skill-desc">End-to-end creative for campaigns — ad sets, brochures, impact books, emailers, banners, and WhatsApp content.</p>
-      <div class="skill-tags"><span class="skill-tag">AD Sets</span><span class="skill-tag">Impact Books</span><span class="skill-tag">Emailers</span></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">◎</div>
-      <h3 class="skill-title">Visual Direction</h3>
-      <p class="skill-desc">Setting the visual tone before execution begins — moodboards, concept development and creative direction.</p>
-      <div class="skill-tags"><span class="skill-tag">Art Direction</span><span class="skill-tag">Moodboarding</span><span class="skill-tag">Concept Dev</span></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">▣</div>
-      <h3 class="skill-title">Print & Digital</h3>
-      <p class="skill-desc">Fluent across mediums — large format print, digital creatives, social content, and motion-ready assets.</p>
-      <div class="skill-tags"><span class="skill-tag">Print</span><span class="skill-tag">Digital</span><span class="skill-tag">Social</span></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">◆</div>
-      <h3 class="skill-title">Premium Aesthetics</h3>
-      <p class="skill-desc">Giving brands a premium face — refined typography, considered layouts and visual elevation that signals quality.</p>
-      <div class="skill-tags"><span class="skill-tag">Typography</span><span class="skill-tag">Layout</span><span class="skill-tag">Luxury Design</span></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">✦</div>
-      <h3 class="skill-title">AI-Assisted Design</h3>
-      <p class="skill-desc">Leveraging Midjourney, Firefly and emerging AI tools to accelerate ideation without compromising creative quality.</p>
-      <div class="skill-tags"><span class="skill-tag">Midjourney</span><span class="skill-tag">Firefly</span><span class="skill-tag">AI Ideation</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <p class="section-eyebrow">What They Say</p>
-  <div class="testimonials-grid reveal">
-    <div class="testimonial">
-      <p class="testimonial-text">Deependra doesn't just deliver what's asked — he always brings something unexpected to the table. His work on our P2 campaign was exceptional. The creatives spoke before the copy did.</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">A</div>
-        <div>
-          <div class="testimonial-name">Ananya Sharma</div>
-          <div class="testimonial-role">Marketing Lead · Times Group</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial">
-      <p class="testimonial-text">Working with Deep is refreshing — he understands brand at a level most designers don't. He thinks strategy before he opens Illustrator. That's rare and valuable.</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">R</div>
-        <div>
-          <div class="testimonial-name">Rohan Mehta</div>
-          <div class="testimonial-role">Creative Director · Mumbai</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial">
-      <p class="testimonial-text">The impact book Deep designed for our campaign was the best we've produced. Clean, premium and exactly aligned to where the brand needed to go. Highly recommended.</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">P</div>
-        <div>
-          <div class="testimonial-name">Priya Nair</div>
-          <div class="testimonial-role">Brand Manager · Mumbai</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial">
-      <p class="testimonial-text">Deep has an eye for premium that very few designers possess. His brochures and collaterals consistently outperform expectations and always generate positive client feedback.</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">S</div>
-        <div>
-          <div class="testimonial-name">Siddharth Joshi</div>
-          <div class="testimonial-role">Senior Manager · Times Group</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="contact-layout reveal">
-    <div class="contact-left">
-      <h2>Let's go <em>beyond</em> the brief.</h2>
-      <p>Open to freelance projects, collaborations and full-time opportunities. If you have a brand that needs a stronger face — let's talk.</p>
-      <a href="mailto:c-deependra.wavekar@timesgroup.com" class="contact-cta">Start a Conversation →</a>
-    </div>
-    <div class="contact-right">
-      <a class="contact-link" href="mailto:c-deependra.wavekar@timesgroup.com">
-        <div>
-          <div class="link-label">Email</div>
-          <div>c-deependra.wavekar@timesgroup.com</div>
-        </div>
-        <span class="link-arrow">↗</span>
-      </a>
-      <a class="contact-link" href="https://www.behance.net/deepwavekar" target="_blank">
-        <div>
-          <div class="link-label">Behance</div>
-          <div>behance.net/deepwavekar</div>
-        </div>
-        <span class="link-arrow">↗</span>
-      </a>
-      <a class="contact-link" href="#">
-        <div>
-          <div class="link-label">Location</div>
-          <div>Mumbai, Maharashtra, India</div>
-        </div>
-        <span class="link-arrow">→</span>
-      </a>
-      <a class="contact-link" href="#">
-        <div>
-          <div class="link-label">Availability</div>
-          <div>Open to Freelance & Collaborations</div>
-        </div>
-        <span class="link-arrow">→</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">BEYOND THE BRIEF · DEEPENDRA WAVEKAR</div>
-  <div class="footer-copy">© 2026 · Mumbai · All Rights Reserved</div>
-</footer>
-
-<script>
-// Cursor
-const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX;my=e.clientY;
-  cur.style.transform=`translate(${mx-3}px,${my-3}px)`;
-});
-(function animRing(){
-  rx+=(mx-rx-16)*0.1;ry+=(my-ry-16)*0.1;
-  ring.style.transform=`translate(${rx}px,${ry}px)`;
-  requestAnimationFrame(animRing);
-})();
-document.querySelectorAll('a,button').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{ring.style.transform+=' scale(1.6)';ring.style.borderColor='rgba(255,60,0,0.7)';});
-  el.addEventListener('mouseleave',()=>{ring.style.borderColor='rgba(255,60,0,0.35)';});
-});
-
-// Nav scroll
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
-
-// Reveal on scroll
-const reveals=document.querySelectorAll('.reveal');
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach((e,i)=>{
-    if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80);
-  });
-},{threshold:0.1});
-reveals.forEach(r=>obs.observe(r));
-</script>
-</body>
-</html>
+PRINT DESIGN
+Product Flyers
+High-impact print creatives for product campaigns.
+↗
+EXPERTISE
+⬡
+Brand Identity
+Architecting cohesive visual systems from scratch — distinct logo marks, typography scales, color hierarchies, and brand guidelines that give a business its enduring voice.
+LOGO DESIGN
+BRAND GUIDELINES
+VISUAL SYSTEMS
+◈
+Campaign Creatives
+Crafting high-converting, multi-channel campaign collateral — performance ad sets, editorial brochures, impact reports, emailers, and tailored digital assets that drive action.
+AD SETS
+IMPACT BOOKS
+EMAILERS
+◎
+Visual Direction
+Defining the creative vision before laying a single pixel — moodboards, aesthetic frameworks, narrative hooks, and art direction that guide the entire project lifecycle.
+ART DIRECTION
+MOODBOARDING
+CONCEPT DEV
+▣
+Print & Digital
+Mastering execution across tactile and screen mediums — from large-format outdoor media, editorial layouts, and prepress production to responsive digital banners and social content.
+PRINT
+DIGITAL
+SOCIAL
+◆
+UI Design
+Structuring intuitive, visually elevated digital interfaces — deliberate layout geometry, refined typography, design tokens, and components built for seamless user engagement.
+UI/UX
+TYPOGRAPHY
+COMPONENTS
+✦
+AI-Assisted Design
+Harnessing generative AI tools to rapidly prototype concepts, expand visual experimentation, and shorten production cycles while keeping core artistic craft front and center.
+MIDJOURNEY
+FIREFLY
+AI IDEATION
+WHAT THEY SAY
+Deependra doesn't just deliver what's asked — he always brings something unexpected to the table. His work on our P2 campaign was exceptional. The creatives spoke before the copy did.
+A
+Ananya Sharma
+MARKETING LEAD · TIMES GROUP
+Working with Deep is refreshing — he understands brand at a level most designers don't. He thinks strategy before he opens Illustrator. That's rare and valuable.
+R
+Rohan Mehta
+CREATIVE DIRECTOR · MUMBAI
+The impact book Deep designed for our campaign was the best we've produced. Clean, premium and exactly aligned to where the brand needed to go. Highly recommended.
+P
+Priya Nair
+BRAND MANAGER · MUMBAI
+Deep has an eye for premium that very few designers possess. His brochures and collaterals consistently outperform expectations and always generate positive client feedback.
+S
+Siddharth Joshi
+SENIOR MANAGER · TIMES GROUP
+Let's go beyond the brief.
+Open to freelance projects, collaborations and full-time opportunities. If you have a brand that needs a stronger face — let's talk.
+START A CONVERSATION →
+EMAIL
+c-deependra.wavekar@timesgroup.com
+↗
+BEHANCE
+behance.net/deepwavekar
+↗
+LOCATION
+Mumbai, Maharashtra, India
+→
+AVAILABILITY
+Open to Freelance & Collaborations
+→
+BEYOND THE BRIEF · DEEPENDRA WAVEKAR
+© 2026 · Mumbai · All Rights Reserved
